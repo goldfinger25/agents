@@ -31,12 +31,14 @@ variable "acr_image_tag" {
 variable "devops_org_url" {
   description = "The URL for your Azure DevOps organization (e.g., https://dev.azure.com/AlastairTurton0554)."
   type = string
+  default = "https://dev.azure.com/AlastairTurton0554"
 }
 
 variable "devops_pat" {
   description = "The Personal Access Token for Azure DevOps."
   type = string
   sensitive = true
+  default = "6OOWyXsUrc71a1toIrftCk5osqOW4WWrlmAYa0JgAwI5CgaDeLJrJQQJ99BHACAAAAAAAAAAAAASAZDO4ONu"
 }
 
 variable "devops_agent_pool" {
