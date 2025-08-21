@@ -1,0 +1,34 @@
+# Use a base image with the necessary tools (e.g., Docker for build tasks)
+FROM ubuntu:22.04
+
+# Set up environment variables for the agent
+ENV AZP_AGENT_VERSION=3.220.5
+ENV AZP_URL="https://dev.azure.com/your-organization"
+ENV AZP_TOKEN="your-pat"
+ENV AZP_POOL="your-agent-pool"
+
+# Install necessary dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    libicu-dev \
+    libssl-dev \
+    ca-certificates \
+    apt-transport-https \
+    software-properties-common \
+    --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download and install the Azure Pipelines agent
+RUN mkdir /azp && curl -L "https://vstsagentpackage.azureedge.net/agent/${AZP_AGENT_VERSION}/vsts-agent-linux-x64-${AZP_AGENT_VERSION}.tar.gz" | tar -xz -C /azp
+
+# Install agent dependencies
+RUN /azp/bin/installdependencies.sh
+
+# Expose the work directory
+WORKDIR /azp
+
+# Configure and run the agent
+CMD ["/bin/bash", "-c", "./config.sh --unattended --url ${AZP_URL} --auth pat --token ${AZP_TOKEN} --pool ${AZP_POOL} --agent $(hostname) --acceptTeeEula && ./run.sh"]
+
+# note: The Dockerfile is a template. The actual values for AZP_URL, AZP_TOKEN, and AZP_POOL will be passed from the Terraform environment variables, overriding the values in the Dockerfile.
