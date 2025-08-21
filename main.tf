@@ -1,4 +1,6 @@
-
+provider "azurerm" {
+  features {}
+}
 
 
 resource "azurerm_subscription" "sub" {

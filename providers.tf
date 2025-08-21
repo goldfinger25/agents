@@ -1,7 +1,5 @@
 terraform {
-  required_provider "azurerm" {
-  features {}
-}
+ 
 
   backend "azurerm" {
       resource_group_name  = "rg_tfstate_01"
