@@ -38,7 +38,7 @@ variable "devops_pat" {
   description = "The Personal Access Token for Azure DevOps."
   type = string
   sensitive = true
-  default = "6OOWyXsUrc71a1toIrftCk5osqOW4WWrlmAYa0JgAwI5CgaDeLJrJQQJ99BHACAAAAAAAAAAAAASAZDO4ONu"
+
 }
 
 variable "devops_agent_pool" {
