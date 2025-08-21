@@ -1,3 +1,13 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "4.40.0"
+    }
+  }
+}
+
+
 resource "azurerm_subscription" "sub" {
   alias             = "Baseline Sub"
   subscription_name = "Baseline Sub"
