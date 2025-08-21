@@ -7,19 +7,19 @@ variable "resource_group_name" {
 variable "location" {
   description = "The Azure region to deploy the resources."
   type = string
-  default = "East US"
+  default = "UK South"
 }
 
 variable "acr_name" {
   description = "The name of the Azure Container Registry."
   type = string
-  default = "mydevopsagentsacr"
+  default = "ACR_Agents"
 }
 
 variable "acr_image_name" {
   description = "The name of the Docker image."
   type = string
-  default = "devops-agent"
+  default = "devops-agent-image"
 }
 
 variable "acr_image_tag" {
