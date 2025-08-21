@@ -1,10 +1,8 @@
 terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "4.40.0"
-    }
-  }
+  required_provider "azurerm" {
+  features {}
+}
+
   backend "azurerm" {
       resource_group_name  = "rg_tfstate_01"
       storage_account_name = "atbuildtfstate01"
