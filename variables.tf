@@ -29,7 +29,7 @@ variable "acr_image_tag" {
 }
 
 variable "devops_org_url" {
-  description = "The URL for your Azure DevOps organization (e.g., https://dev.azure.com/myorg)."
+  description = "The URL for your Azure DevOps organization (e.g., https://dev.azure.com/AlastairTurton0554)."
   type = string
 }
 
