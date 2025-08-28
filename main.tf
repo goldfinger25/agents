@@ -3,11 +3,9 @@ provider "azurerm" {
 }
 
 
-resource "azurerm_subscription" "sub" {
-  alias             = "Baseline Sub"
-  subscription_name = "Baseline Sub"
-  subscription_id   = "e83a6760-22e0-44ea-a806-d6475fd8ee45"
-}
+
+
+
 resource "azurerm_resource_group" "rg" {
   name = var.resource_group_name
   location = var.location
