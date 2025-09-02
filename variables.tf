@@ -13,7 +13,7 @@ variable "location" {
 variable "acr_name" {
   description = "The name of the Azure Container Registry."
   type = string
-  default = "ACR_Agents"
+  default = "ACRAgents"
 }
 
 variable "acr_image_name" {
